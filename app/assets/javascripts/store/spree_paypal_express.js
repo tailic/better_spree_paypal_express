@@ -16,10 +16,11 @@ SpreePaypalExpress = {
     return $('div[data-hook="checkout_payment_step"] input[type="radio"][name="order[payments_attributes][][payment_method_id]"]:checked');
   },
   hideSaveAndContinue: function() {
-    $('.continue').hide();
+    $('.continue').hide(0).data("hidden-by", SpreePaypalExpress.paymentMethodID);
   },
   showSaveAndContinue: function() {
-    $('.continue').show();
+    if($('.continue').data("hidden-by") == SpreePaypalExpress.paymentMethodID)
+      $('.continue').show();
   }
 }
 
