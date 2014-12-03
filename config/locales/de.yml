@@ -15,6 +15,6 @@ de:
       actions:
         refund: "Erstatten"
       flash:
-        cancel: "Sie wollen PayPal doch nicht benutzen? Kein Problem."
+        cancel: "Sie haben den Bezahlvorgang bei PayPal abgebrochen. Wählen Sie bitte eine Zahlart aus."
         connection_failed: "Verbindung zu Paypal nicht erfolgreich."
         generic_error: "PayPal fehlgeschlagen. %{reasons}"
