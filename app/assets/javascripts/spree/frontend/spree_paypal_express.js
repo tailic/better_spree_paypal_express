@@ -1,4 +1,5 @@
-//= require spree/frontend
+//= require store/spree_frontend
+
 
 SpreePaypalExpress = {
   updateSaveAndContinueVisibility: function() {
@@ -19,7 +20,8 @@ SpreePaypalExpress = {
     $('.continue').hide();
   },
   showSaveAndContinue: function() {
-    $('.continue').show();
+      if ($.inArray(this.checkedPaymentMethod().val(), hideContinueOnIds) == -1)
+          $('.continue').show();
   }
 }
 
