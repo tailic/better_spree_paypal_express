@@ -38,8 +38,8 @@ module Spree
           flash[:error] = Spree.t('flash.generic_error', :scope => 'paypal', :reasons => pp_response.errors.map(&:long_message).join(" "))
           redirect_to checkout_state_path(:payment)
         end
-      rescue SocketError
-        flash[:error] = Spree.t('flash.connection_failed', :scope => 'paypal')
+      rescue SocketError => e
+        flash[:error] = Spree.t(e.message, :scope => 'paypal')
         redirect_to checkout_state_path(:payment)
       end
     end
