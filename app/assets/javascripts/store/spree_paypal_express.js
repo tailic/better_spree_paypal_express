@@ -1,5 +1,6 @@
 //= require store/spree_frontend
 
+
 SpreePaypalExpress = {
   updateSaveAndContinueVisibility: function() {
     if (this.isButtonHidden()) {
@@ -16,11 +17,11 @@ SpreePaypalExpress = {
     return $('div[data-hook="checkout_payment_step"] input[type="radio"][name="order[payments_attributes][][payment_method_id]"]:checked');
   },
   hideSaveAndContinue: function() {
-    $('.continue').hide(0).data("hidden-by", SpreePaypalExpress.paymentMethodID);
+    $('.continue').hide();
   },
   showSaveAndContinue: function() {
-    if($('.continue').data("hidden-by") == SpreePaypalExpress.paymentMethodID)
-      $('.continue').show();
+      if ($.inArray(this.checkedPaymentMethod().val(), hideContinueOnIds) == -1)
+          $('.continue').show();
   }
 }
 
