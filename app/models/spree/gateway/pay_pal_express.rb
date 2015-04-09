@@ -13,6 +13,8 @@ module Spree
       true
     end
 
+    def cancel(response); end
+
     def provider_class
       ::PayPal::SDK::Merchant::API
     end
